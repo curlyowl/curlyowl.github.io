@@ -19,7 +19,7 @@
                    'phone'
                ];
 
-               if (window.yandex.autofill.getProfileData) {
+               if (window?.yandex?.autofill?.getProfileData) {
                    window.yandex.autofill.getProfileData(params).then((r) => {
                        const {firstName = '', lastName = '', middleName = ''} = r;
 
