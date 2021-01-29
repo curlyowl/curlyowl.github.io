@@ -9,19 +9,24 @@
     <script src="https://yastatic.net/s3/passport-sdk/autofill/v1/sdk-latest.js" async></script>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            const params = [
-                'last_name',
-                'first_name',
-                'middle_name',
-                'phone'
-            ]
-           setTimeout(() => {
-               window.yandex.autofill.getProfileData(params).then((r) => {
-                   console.log(r);
-               }).catch((e) => {
-                   console.error(e);
-               })
-           }, 1000);
+
+            document.querySelector('.js-autofill').addEventListener('click', function (e) {
+               const params = [
+                   'last_name',
+                   'first_name',
+                   'middle_name',
+                   'phone'
+               ];
+
+               if (window.yandex.autofill.getProfileData) {
+                   window.yandex.autofill.getProfileData(params).then((r) => {
+                       console.log(r);
+                   }).catch((e) => {
+                       console.error(e);
+                       alert('Что-то не вышло!');
+                   })
+               }
+           });
         });
     </script>
 </head>
@@ -36,6 +41,7 @@
     <div>
         <input type="text" name="middle_name" id="middle_name">
     </div>
+    <button class="js-autofill">Авторизовать через яндекс</button>
 </form>
 </body>
 </html>
