@@ -12,6 +12,7 @@
         document.addEventListener('DOMContentLoaded', function () {
 
             document.querySelector('.js-autofill').addEventListener('click', function (e) {
+                e.preventDefault();
                const params = [
                    'last_name',
                    'first_name',
