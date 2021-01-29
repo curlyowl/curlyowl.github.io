@@ -9,27 +9,6 @@
     <title>Document</title>
     <link rel="manifest" href="manifest.json">
     <script src="https://yastatic.net/s3/passport-sdk/autofill/v1/sdk-latest.js" async></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-
-            document.querySelector('.js-autofill').addEventListener('click', function (e) {
-                e.preventDefault();
-               const params = [
-                   'name',
-                   'phone'
-               ];
-
-               if (window.yandex.autofill.getProfileData) {
-                   window.yandex.autofill.getProfileData(params).then((r) => {
-                       console.log(r);
-                   }).catch((e) => {
-                       console.error(e);
-                       alert('Что-то не вышло!');
-                   })
-               }
-           });
-        });
-    </script>
 </head>
 <body>
 <form action="">
